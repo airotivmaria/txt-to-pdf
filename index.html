@@ -6,6 +6,30 @@
     <title>Conversor TXT - PDF</title>
 </head>
 <body>
-    
+    <h2>Conversor TXT para PDF</h2>
+    <button id="select">Selecionar TXT</button>
+    <p id="file">Nenhum arquivo selecionado</p>
+    <button id="convert">Converter</button>
+    <p id="result"></p>
+
+  <script>
+        const selectBtn = document.getElementById('select');
+        const convertBtn = document.getElementById('convert');
+        const fileText = document.getElementById('file');
+        const resultText = document.getElementById('result');
+
+        let filePath = null;
+
+        selectBtn.onclick = async () => {
+            filePath = await window.api.selectTxt();
+            fileText.textContent = filePath || 'Nenhum arquivo selecionado';
+        };
+
+        convertBtn.onclick = async () => {
+            if (!filePath) return;
+            const result = await window.api.convert(filePath);
+            resultText.textContent = result.error ? result.error : `PDF gerado: ${result}`;
+        };
+  </script>
 </body>
 </html>
