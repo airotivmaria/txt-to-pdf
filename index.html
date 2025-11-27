@@ -32,7 +32,12 @@
                 resultText.textContent = result.error;
             } else {
                 const fileName = result.split(/[/\\]/).pop();
-                resultText.innerHTML = `PDF gerado: <a href="file://${result}" target="_blank">${fileName}</a>`;
+                resultText.innerHTML = `PDF gerado: ${fileName} <br><br> 
+                <button id="openPDF">Abrir PDF</button>`;
+
+                document.getElementById('openPDF').onclick = () => {
+                    window.api.openFile(result);
+                };
             }
         };
   </script>
