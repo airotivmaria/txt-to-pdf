@@ -43,3 +43,9 @@ ipcMain.handle('convert', async (event, filePath) => {
     return { error: err.message };
   }
 });
+
+const { shell } = require('electron');
+
+ipcMain.handle('open-file', async (_, filePath) => {
+  shell.openPath(filePath); // abre no visualizador padrão
+});
