@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const PDFDocument = require('pdfkit');
 
+// Cria a janela principal
 function createWindow() {
   const win = new BrowserWindow({
     width: 600,
@@ -18,6 +19,7 @@ app.whenReady().then(() => {
   createWindow();
 });
 
+
 ipcMain.handle('select-txt', async () => {
   const result = await dialog.showOpenDialog({
     filters: [{ name: 'Text Files', extensions: ['txt'] }],
@@ -26,6 +28,7 @@ ipcMain.handle('select-txt', async () => {
   return result.filePaths[0];
 });
 
+// Manipulador para converter arquivo TXT em PDF
 ipcMain.handle('convert', async (event, filePath) => {
   const path = require('path');
 
@@ -73,6 +76,8 @@ ipcMain.handle('convert', async (event, filePath) => {
     return { error: err.message };
   }
 });
+
+// Manipulador para abrir o arquivo PDF gerado
 ipcMain.handle('open-file', async (_, filePath) => {
   try {
     const { shell } = require('electron');
