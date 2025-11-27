@@ -35,9 +35,18 @@
                 resultText.innerHTML = `PDF gerado: ${fileName} <br><br> 
                 <button id="openPDF">Abrir PDF</button>`;
 
+                console.log("PDF gerado em:", result);
+
                 document.getElementById('openPDF').onclick = () => {
-                    window.api.openFile(result);
+                    console.log('Chamando open-file com:', result);
+                
+                    window.api.openFile(result).then(response => {
+                        if (response.error) console.error(response.error);
+                    });
                 };
+
+                console.log("Abrindo arquivo:", result);
+
             }
         };
   </script>
