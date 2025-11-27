@@ -25,3 +25,21 @@ ipcMain.handle('select-txt', async () => {
   });
   return result.filePaths[0];
 });
+
+ipcMain.handle('convert', async (event, filePath) => {
+  try {
+    const text = await fs.readFile(filePath, 'utf-8');
+    const outputPath = filePath.replace('.txt', '.pdf');
+
+    const doc = new PDFDocument();
+    const writeStream = fs.createWriteStream(outputPath);
+
+    doc.pipe(writeStream);
+    doc.font('Times-Roman').fontSize(12).text(text);
+    doc.end();
+
+    return outputPath;
+  } catch (err) {
+    return { error: err.message };
+  }
+});
