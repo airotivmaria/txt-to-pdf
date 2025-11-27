@@ -22,13 +22,18 @@
 
         selectBtn.onclick = async () => {
             filePath = await window.api.selectTxt();
-            fileText.textContent = filePath || 'Nenhum arquivo selecionado';
+            fileText.textContent = filePath ? filePath.split(/[/\\]/).pop() : 'Nenhum arquivo selecionado';
         };
 
         convertBtn.onclick = async () => {
             if (!filePath) return;
             const result = await window.api.convert(filePath);
-            resultText.textContent = result.error ? result.error : `PDF gerado: ${result}`;
+            if (result.error){
+                resultText.textContent = result.error;
+            } else {
+                const fileName = result.split(/[/\\]/).pop();
+                resultText.innerHTML = `PDF gerado: <a href="file://${result}" target="_blank">${fileName}</a>`;
+            }
         };
   </script>
 </body>
