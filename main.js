@@ -29,7 +29,7 @@ ipcMain.handle('select-txt', async () => {
 ipcMain.handle('convert', async (event, filePath) => {
   try {
     const text = await fs.readFile(filePath, 'utf-8');
-    const outputPath = filePath.replace('.txt', '.pdf');
+    const outputPath = filePath.replace('/\.txt$/i', '.pdf');
 
     const doc = new PDFDocument();
     const writeStream = fs.createWriteStream(outputPath);
