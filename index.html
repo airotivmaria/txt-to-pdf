@@ -12,7 +12,8 @@
     <button id="convert">Converter</button>
     <p id="result"></p>
 
-  <script>
+    //Adicionando o script diretamente no HTML
+    <script>
         const selectBtn = document.getElementById('select');
         const convertBtn = document.getElementById('convert');
         const fileText = document.getElementById('file');
@@ -35,6 +36,7 @@
                 resultText.innerHTML = `PDF gerado: ${fileName} <br><br> 
                 <button id="openPDF">Abrir PDF</button>`;
 
+                //caminho do pdf gerado
                 console.log("PDF gerado em:", result);
 
                 document.getElementById('openPDF').onclick = () => {
@@ -44,9 +46,7 @@
                         if (response.error) console.error(response.error);
                     });
                 };
-
                 console.log("Abrindo arquivo:", result);
-
             }
         };
   </script>
