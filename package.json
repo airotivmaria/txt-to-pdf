@@ -1,0 +1,27 @@
+{
+  "name": "txt-to-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airotivmaria/txt-to-pdf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/airotivmaria/txt-to-pdf/issues"
+  },
+  "homepage": "https://github.com/airotivmaria/txt-to-pdf#readme",
+  "dependencies": {
+    "electron": "^39.2.4",
+    "fs-extra": "^11.3.2",
+    "pdfkit": "^0.17.2",
+    "yargs": "^18.0.0"
+  }
+}
