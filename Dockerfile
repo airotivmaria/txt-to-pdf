@@ -15,3 +15,5 @@ ENTRYPOINT ["node", "cli.js"]
 # Instala as dependências
 # Copia o restante do projeto
 # Define o comando de entrada. 
+
+LABEL org.opencontainers.image.source=https://github.com/airotivmaria/txt-to-pdf
