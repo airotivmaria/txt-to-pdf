@@ -6,6 +6,26 @@ Aplicação para conversão de arquivos de texto em PDF. O projeto conta com uma
 1. **Desktop (Interface):** Seleção de arquivos via janela visual.
 2. **CLI (Terminal):** Automação via linha de comando e Docker.
 
+## 🖥️ Como usar (Versão Desktop / Visual)
+
+Esta é a versão padrão com interface gráfica.
+
+Pré-requisitos
+
+* Node.js instalado.
+
+Passo a passo
+
+ 1. Instale as dependências:
+    ```bash
+    npm install
+    ```
+ 2. Inicie a aplicação:
+    ```bash
+    npm start
+    ```
+    (Uma janela abrirá para você selecionar o arquivo TXT)
+
 ## 🚀 Como usar (CLI / Terminal)
 
 Caso você tenha o Node.js instalado e queira rodar localmente:
